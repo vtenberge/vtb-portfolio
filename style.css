@@ -1,6 +1,6 @@
 /* ============================================================
    Vincent ten Berge portfolio
-   Design tokens (overridable by Tweaks via inline CSS vars on :root)
+   Design tokens (override via inline CSS vars on :root)
    ============================================================ */
 
 :root {
