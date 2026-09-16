@@ -1,22 +1,48 @@
-# CODING AGENTS: READ THIS FIRST
+# vincenttenberge.nl
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+Personal portfolio site. Static HTML, CSS and vanilla JS, no build step and
+no dependencies beyond Google Fonts.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## Running it
 
-## What you should do — IMPORTANT
+Open `index.html` in a browser, or serve the folder if you want clean paths:
 
-**Read `project/index.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+```sh
+python3 -m http.server 8000
+```
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+## Structure
 
-## About the design files
+| File | What it is |
+| --- | --- |
+| `index.html` | Home: hero, availability, selected engagements |
+| `work.html` | Full experience list and credentials |
+| `consulting.html` | Services, process, booking availability |
+| `projects.html` | Side projects |
+| `contact.html` | Contact details and links |
+| `style.css` | All styling. Design tokens live on `:root` at the top |
+| `cursor.js` | Cursor blob and sparkle trail, rotating status, confetti |
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+Each page is self-contained and links to `style.css` and `cursor.js`
+directly. Nav state is set per page with `class="active"`.
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+## Things worth knowing
 
-## Bundle contents
+- **Availability appears in two places** and they have to agree: the hero
+  status and `Currently` meta row in `index.html`, and the `Currently`
+  section near the bottom of `consulting.html`.
+- **The site is dark only.** `style.css` carries a full set of light theme
+  tokens behind `[data-theme="light"]`, but nothing sets that attribute.
+  Setting it on `<html>` turns the light theme on.
+- **`cursor.js` degrades on touch.** It bails out on `(hover: none)` and adds
+  `.no-blob` to the body instead.
+- **Easter eggs:** clicking any `[data-confetti]` element fires confetti, and
+  triple-clicking the brand mark in the nav fires a bigger burst.
+- **No em-dashes in the copy.** Use commas, colons or full stops.
 
-- `README.md` — this file
-- `project/` — the `portfolio` project files (HTML prototypes, assets, components)
+## History
+
+This started as a Claude Design handoff bundle. The original HTML prototypes
+lived in `project/` and were removed once the site had diverged far enough
+from them to make the folder misleading. They are still in git history if you
+need them.

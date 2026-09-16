@@ -1,10 +1,10 @@
 /* ============================================================
-   Vincent ten Berge — portfolio
-   Design tokens (overridable by Tweaks via inline CSS vars on :root)
+   Vincent ten Berge portfolio
+   Design tokens (override via inline CSS vars on :root)
    ============================================================ */
 
 :root {
-  /* Color — warm dark by default (light theme overrides below) */
+  /* Color: warm dark by default (light theme overrides below) */
   --bg:        oklch(0.17 0.018 60);
   --paper:     oklch(0.22 0.020 60);
   --paper-2:   oklch(0.27 0.024 60);
@@ -723,7 +723,7 @@ body.no-marquee .marquee { display: none; }
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 10' preserveAspectRatio='none'><path d='M0 5 Q 10 0 20 5 T 40 5' fill='none' stroke='%23000000' stroke-opacity='.18' stroke-width='1.4'/></svg>");
 }
 
-/* Sticker dot — small rotated colored dot */
+/* Sticker dot: small rotated colored dot */
 .dot-sticker {
   display: inline-block;
   width: 12px; height: 12px;
@@ -731,13 +731,13 @@ body.no-marquee .marquee { display: none; }
   background: var(--accent-2, var(--accent));
 }
 
-/* Wavy hand-drawn underline highlight — uses native text-decoration so it follows --accent */
+/* Wavy hand-drawn underline highlight: uses native text-decoration so it follows --accent */
 .wavy {
   text-decoration: underline wavy var(--accent);
   text-decoration-thickness: 2.5px;
   text-underline-offset: 5px;
 }
-/* Pen-circle highlight (a hand-drawn circle around a word) — mask so it inherits --accent */
+/* Pen-circle highlight (a hand-drawn circle around a word): mask so it inherits --accent */
 .circle-it {
   position: relative;
   display: inline-block;
@@ -787,7 +787,7 @@ body.no-marquee .marquee { display: none; }
   100% { transform: translate(-50%, -50%) translate(var(--tx, 100px), calc(var(--ty, -50px) + 220px)) rotate(var(--rot, 180deg)); opacity: 0; }
 }
 
-/* Brand mark — gentle constant breathe */
+/* Brand mark: gentle constant breathe */
 .brand-mark { animation: breathe 4.4s ease-in-out infinite; }
 @keyframes breathe {
   0%, 100% { transform: scale(1); }
@@ -822,7 +822,7 @@ body.no-marquee .marquee { display: none; }
   color: var(--accent);
 }
 
-/* PS note — handwritten feel via display italic */
+/* PS note: handwritten feel via display italic */
 .ps-note {
   font-family: var(--font-display);
   font-style: italic;
